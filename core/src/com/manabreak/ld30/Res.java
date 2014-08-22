@@ -7,7 +7,9 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 /**
@@ -32,6 +34,47 @@ public class Res
 	
 	// Skins
 	private static HashMap<String, Skin> skins = new HashMap<String, Skin>();
+	private static Skin defaultSkin = null;
+	
+	public static Sprite createSprite(String name)
+	{
+		return atlas.createSprite(name);
+	}
+	
+	public static TextureRegion getRegion(String name)
+	{
+		return atlas.findRegion(name);
+	}
+	
+	public static Sound getSound(String name)
+	{
+		return sounds.get(name);
+	}
+	
+	public static Music getMusic(String name)
+	{
+		return musics.get(name);
+	}
+	
+	public static BitmapFont getFont(String name)
+	{
+		return fonts.get(name);
+	}
+	
+	public static Skin getSkin(String name)
+	{
+		return skins.get(name);
+	}
+	
+	public static Skin getDefaultSkin()
+	{
+		return defaultSkin;
+	}
+	
+	public static void setDefaultSkin(Skin skin)
+	{
+		defaultSkin = skin;
+	}
 	
 	/**
 	 * Loads all the resources in the default folders. If you want to load something
